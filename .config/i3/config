@@ -208,10 +208,13 @@ client.focused           #3f444f #2f343f #ffffff #2f503f #2f343f
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 set $sound_notify bash ~/.config/i3/sound_notify.sh
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $sound_notify && $refresh_i3status 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $sound_notify && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $sound_notify && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $sound_notify&& $refresh_i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $sound_notify && $refresh_i3status 
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ && $sound_notify && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $sound_notify && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- && $sound_notify && $refresh_i3status
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $sound_notify && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && $sound_notify && $refresh_i3status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $sound_notify&& $refresh_i3status
 
 # Sreen brightness controls
 set $brightness_notify bash ~/.config/i3/brightness_notify.sh
@@ -238,3 +241,4 @@ workspace 3 output primary
 exec_always feh --bg-scale ~/Images/Wallpapers/BristleconeForest.jpg
 exec compton -f
 
+#exec --no-startup-id /usr/libexec/gsd-xsettings
