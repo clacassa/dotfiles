@@ -11,4 +11,4 @@ prop_accel_spd_id=`xinput list-props $touchpad_id | grep 'Accel' | head -n 1 | a
 
 xinput set-prop $touchpad_id $prop_tap_id 1
 xinput set-prop $touchpad_id $prop_nat_scrol_id 1
-xinput set-prop $touchpad_id $prop_accel_spd_id 0.5
+xinput set-prop $touchpad_id $prop_accel_spd_id 0

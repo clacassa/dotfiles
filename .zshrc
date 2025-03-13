@@ -8,8 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# eastwood, gentoo, half-life, kolo, jnrowe, steeef
-ZSH_THEME="sunrise"
+# eastwood, half-life, kolo, sunrise, refined
+ZSH_THEME="eastwood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -101,10 +101,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/.zsh_profile
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 export NO_NOTIFY_COLOR=1
 
-alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME
+alias dotfiles'=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Created by `pipx` on 2024-09-17 08:17:20
+export PATH="$PATH:/home/cygne/.local/bin"
